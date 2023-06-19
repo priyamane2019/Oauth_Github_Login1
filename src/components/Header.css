@@ -1,0 +1,22 @@
+.heading
+{
+  width:100%;
+  height:0.5%;
+  display: flex;
+  background-color:black;
+  padding: 0 px ;
+  margin:  0 px ;
+}
+.logo1, .logo2
+{
+  width:150px;
+  height:70px;
+}
+
+
+@media screen and  (max-width: 480px)
+{
+  .heading{
+    width:900px;
+  }
+}

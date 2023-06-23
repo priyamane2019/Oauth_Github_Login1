@@ -1,13 +1,22 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
+import {GoRepoForked } from "react-icons/go";
+import { useAuth0 } from '@auth0/auth0-react';
 import "../index.css"
 
 const RepoDetailsPage = () => {
+  const {logout } = useAuth0();
   const location = useLocation();
   const result = location.state;
   console.log(result);
   return (
     <div className='detail'>
+      <div className="parent">
+      <button className="logout1"
+                onClick={() => logout({ returnTo: window.location.origin })}>
+                 Log Out
+              </button>
+      </div>
       <div className="container-fluid mt-5">
         {
           result.map(item => {
@@ -15,30 +24,17 @@ const RepoDetailsPage = () => {
               <div className="col-10 col-md-4 mt-5" key={item.id}>
                 <div className="card p-2">
                   <div className="d-flex align-items-center">
-                    <div className="image"> <img src={item.avatar_url} className="rounded" width="155" alt="img" /> </div>
+                    <div className="image"> <img src={item.avtar_url} className="rounded" width="155" alt="img" /> </div>
                     <div className="ml-3 w-100">
-                      {<h4 className="mb-0 mt-0 textLeft">{item.login}  </h4>}
-                      {<h4 className="mb-0 mt-0 textLeft">{item.id}  </h4>}
-                      {<span className="text-left">{item.type}</span>}
-                      {<h4 className="mb-0 mt-0 textLeft">{item.node_id}  </h4>}
+                      {<h4 className="mb-0 mt-0 textLeft"><b>Id:</b>{item.id}  </h4>}
+                      {<p className="mb-0 mt-0 textLeft"><b>Repo:</b>{item.repo_name}  </p>}
+                      {<p className="mb-0 mt-0 textLeft"><b>Author:</b>{item.author}  </p>}
+                      {<span className="text-left"><b>Node_Id:</b>{item.Node_id}</span>}
+                      {<p className="mb-0 mt-0 textLeft"><b>Language:</b>{item.language}  </p>}<br/><br/>
+                      <button className='fork'><GoRepoForked size={25} />  Start fork</button>
                     </div>
                   </div>
                 </div>
-                <h4>All Details</h4>
-                <div className="Allurl">
-                 <span><b>Repos_Url:</b> {item.repos_url}</span> <br />  
-                 <span><b>Events_Url:</b> {item.events_url}</span> <br />  
-                 <span><b>Followers_Url:</b> {item.followers_url}</span> <br />
-                 <span><b>Gists_Url:</b> {item.gists_url}</span> <br />
-                 <span><b>Organization_Url:</b> {item.organizations_url}</span> <br />
-                 <span><b>Subscription_Url:</b> {item.subscriptions_url}</span> <br />  
-                
-                 <span><b>HTML_Url:</b> {item.html_url}</span> <br />
-
-
-
-                </div>
-
               </div>
               
 
@@ -47,6 +43,7 @@ const RepoDetailsPage = () => {
         }
       </div>
     </div>
+    
   )
 
 }

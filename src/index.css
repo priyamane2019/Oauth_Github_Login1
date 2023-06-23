@@ -11,7 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.LoginBtn , .logoutbtn , .search{
+.LoginBtn{
+  width:300px;
+}
+.LoginBtn , .logoutbtn , .search, .login, .logout{
   width: 200px;
   height:50px;
   border-radius: 5px;
@@ -50,7 +53,7 @@ code {
   padding-top: 20px;
   padding-bottom: 5px;
   margin-bottom: 20px;
-  background-color:aliceblue;
+  background-color:wheat;
   border-radius: 5px;
   
 }
@@ -62,8 +65,34 @@ select , .searchip{
 .searchip{
   width:300px;
 }
-
-
+.parent
+{
+  position: relative;
+  top:0;
+  left:0;
+}
+.logout, .login{
+  position: absolute;
+  top:-100px;
+  left:700px;
+}
+.logout1
+{
+  position: absolute;
+  top:-130px;
+  left:700px;
+}
+.fork, .back, .logout1{
+  background-color: blue;
+  color:white;
+  border:none;
+}
+.back
+{
+  width:150px;
+  margin: 20px;
+ 
+}
 @media screen and  (max-width: 480px)
 {
   .container{
@@ -74,4 +103,20 @@ select , .searchip{
   margin-left: 30px;
 
   }
+
+ .fork
+ {
+   width:150px;
+ }
+ .logout, .login{
+  position: absolute;
+  top:-100px;
+  left:500px;
 }
+.logout1{
+  left:500px;
+
+}
+}
+
+
